@@ -4,6 +4,8 @@
     --color-accent: #ff3400;
     --color-headings: #1b0760;
     --color-body: #918ca4;
+    --color-border: #ccc;
+    --border-radius: 30px;
 }
 
 *, *::after, *::before{
@@ -100,6 +102,7 @@ a{
 
 .badge--small{
     font-size: 1.6rem;
+    padding: 0.5rem 1.5rem;
 }
 @media screen and (min-width: 1024){
     .badge{
@@ -130,6 +133,7 @@ a{
 .list--tick .list__item{
     padding-left: 0.5rem;
     margin-bottom: 1rem;
+    text-transform: capitalize;
 }
 
 @media screen and (min-width: 1024px){
@@ -224,8 +228,8 @@ a{
 /* Input */
 .input{
     padding: 1.5rem 3.5rem;
-    border: 1px solid #ccc;
-    border-radius: 30px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
     outline: 0;
     color: var(--color-headings);
     font-size: 2rem;
@@ -235,8 +239,106 @@ a{
     color: #cdcbd7;
 }
 
+.input-group{
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    display: flex;
+}
+.input-group .input{
+    border: 0;
+    flex-grow: 1;
+    padding: 1.5rem 1rem;
+}
+
+.input-group .btn{
+    margin: 4px;
+}
+
 @media screen and (min-width: 1024px){
     .input{
         font-size: 1.6rem;
+    }
+}
+
+/* Card */
+.card{
+    border-radius: 7px;
+    box-shadow: 0 0 20px 10px #f3f3f3;
+    overflow: hidden;
+}
+.card__header, .card__body{
+    padding: 2rem 3rem;
+}
+
+.card--primary .card__header{
+    background: var(--color-primary);
+    color: #fff;
+}
+.card--secondary .card__header{
+    background: var(--color-secondary);
+    color: #fff;
+}
+
+.card--secondary .badge--secondary{
+    background: #02cdf1;
+}
+
+/* Plans */
+.plan__name{
+    color: #fff;
+    margin: 0;
+    font-weight: 500;
+    font-size: 2.4rem;
+}
+
+.plan__price{
+    font-size: 6rem;
+}
+
+.plan__billing-cycle{
+    font-size: 2.4rem;
+    font-weight: 300;
+    opacity: .8;
+    margin-right: 1rem;
+}
+
+.plan__description{
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.plan .list__item{
+    margin-bottom: 2rem;
+}
+
+.plan--popular .card__header{
+    position: relative;
+}
+.plan--popular .card__header::before{
+    content: url(../images/popular.svg);
+    display: inline-block;
+    position: absolute;
+    right: 5%;
+    top: -6px;
+    width: 40px;
+}
+
+@media screen and (min-width: 1024px){
+    .plan__name{
+        font-size: 1.4rem;
+    }
+
+    .plan__price{
+        font-size: 5rem;
+    }
+
+    .plan__billing-cycle{
+        font-size: 1.6rem;
+    }
+
+    .plan__description{
+        font-size: 1.7rem;
     }
 }
